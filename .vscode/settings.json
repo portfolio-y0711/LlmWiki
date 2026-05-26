@@ -1,0 +1,11 @@
+{
+    "frontMatter.framework.id": "hexo",
+    "frontMatter.preview.host": "http://localhost:4000",
+    "frontMatter.content.publicFolder": "source/images",
+    "frontMatter.content.pageFolders": [
+        {
+            "title": "graphify-out",
+            "path": "[[workspace]]/graphify-out"
+        }
+    ]
+}
