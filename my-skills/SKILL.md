@@ -1,5 +1,35 @@
 # 프로젝트 커스텀 스킬 목록
 
+## /generate-quiz
+
+**설명:** 학습 자료 파일(강좌 자막, 구조화 요약 등)을 분석하여 퀴즈 파일과 정답지를 자동으로 생성합니다. 총 18문제(객관식·O/X·빈칸·단답·서술형) 100점 만점으로 구성됩니다.
+
+**사용법:**
+```
+/generate-quiz <파일경로1> [파일경로2] ...
+```
+
+**예시:**
+```
+/generate-quiz my-raws/Figma Design System 01 Structure.md my-raws/Figma Design System 01 Structure_structured.md
+```
+
+**실행 흐름:**
+1. 입력 파일 경로 파싱 및 파일 내용 읽기
+2. `my-agents/quiz-generator-agent.md` 프롬프트 로드
+3. 퀴즈 파일 생성 → `quiz/<기본이름>-quiz.md`
+4. 정답 파일 생성 → `quiz/<기본이름>-answers.md`
+
+**출력 파일 구성:**
+- **퀴즈:** 1부 객관식(Q1~7), 2부 O/X(Q8~10), 3부 빈칸(Q11~13), 4부 단답(Q14~16), 5부 서술(Q17~18)
+- **정답지:** 파트별 정답·해설, 서술형 모범답안, 채점기준표(100점 만점)
+
+**관련 파일:**
+- `.claude/commands/generate-quiz.md` — 스킬 실행 지침
+- `my-agents/quiz-generator-agent.md` — 퀴즈 생성 에이전트 프롬프트
+
+---
+
 ## /youtube-to-confluence
 
 **설명:** 유튜브 영상의 자막을 다운로드하고, AI로 구조화 요약한 뒤 Confluence '운영 기획' 스페이스에 문서를 자동 생성합니다. 문서 제목은 YouTube 영상 제목을 자동으로 사용합니다.
